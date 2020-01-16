@@ -1,0 +1,27 @@
+section {
+  width: 400px;
+  height: 100vh;
+  background-color: #FFFFFF;
+}
+
+#page-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+  background-color: #15b9df;
+}
+
+#session-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#diabnext-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 200px;
+}

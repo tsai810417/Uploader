@@ -1,0 +1,21 @@
+.instruction-holder {
+  padding: 20px;
+}
+
+.instruction-title {
+  display: flex;
+  align-items: center;
+}
+
+.instruction-note {
+  padding-left: 15px;
+  color: #17b9df;
+}
+
+.instruction-content > ol {
+  padding-left: 30px;
+}
+
+.instruction-content > ol > li {
+  margin-bottom: 20px;
+}
