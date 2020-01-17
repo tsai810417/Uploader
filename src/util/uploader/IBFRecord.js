@@ -107,7 +107,7 @@ class IBFByteReader {
     let minutes = this.nextInt8();
     let hours = this.nextInt8();
 
-    return new Date(year, month - 1, day, hours, minutes, seconds).toISOString();
+    return new Date(year, month - 1, day, hours, minutes, seconds);
   }
 
   /* the next version, as major.minor.patch with numerical components */

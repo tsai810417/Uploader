@@ -28,8 +28,8 @@ class ProductList extends Component {
           return (
             <Grid item md={ 4 } lg={ 3 } xl={ 2 }>
               <Card variant="outlined">
-                <img className='brand-img' alt={p.brand.name} src={p.brand.picture_url} />
-                <img className='product-img' alt={p.name} src={p.picture_url} />
+                <img className='brand-img transparent-img' alt={p.brand.name} src={p.brand.picture_url} />
+                <img className='product-img  transparent-img' alt={p.name} src={p.picture_url} />
               </Card>
             </Grid>
           )

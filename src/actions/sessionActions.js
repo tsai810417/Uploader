@@ -17,7 +17,7 @@ export const requestLoginCode = email => dispatch => {
     dispatch(updateSessionIsPending(false));
   })
   .catch(error => {
-    dispatch(receiveSessionError(error.response.data.error, 'email'))
+    dispatch(receiveSessionError(error.response.data.error, 'email'));
     dispatch(updateSessionIsPending(false));
   })
 };
@@ -30,7 +30,10 @@ export const loginWithCode = (payload, history) => dispatch => {
     dispatch(updateSessionIsPending(false));
     history.push('/dashboard');
   })
-  .catch(error => dispatch(receiveSessionError(error.response.data.error, 'code')))
+  .catch(error => {
+    dispatch(receiveSessionError(error.response.data.error, 'code'));
+    dispatch(updateSessionIsPending(false));
+  })
 };
 
 export const receiveUser = payload => {

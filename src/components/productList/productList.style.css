@@ -6,3 +6,7 @@
   width: 200px;
   margin-bottom: 40px;
 }
+
+.transparent-img {
+  opacity: 0.5;
+}

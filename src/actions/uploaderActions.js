@@ -5,10 +5,10 @@ export const UPDATE_UPLOAD_STATUS = 'UPDATE_UPLOAD_STATUS';
 export const REQUEST_LAST_RECORD = 'REQUEST_LAST_RECORD';
 export const RECEIVE_LAST_RECORD = 'RECEIVE_LAST_RECORD';
 
-export const uploadRecords = (token, records, productId) => dispatch => {
+export const uploadRecords = (token, records, productId, lastRecordTimestamp) => dispatch => {
   dispatch(updateUploadStatus('processing'));
 
-  APIUtil.uploadRecords(token, records)
+  APIUtil.uploadRecords(token, records, lastRecordTimestamp)
   .then(response => {
     dispatch(updateUploadStatus('success'))
     dispatch(requestLastRecord(token, productId))

@@ -1,6 +1,8 @@
+import moment from 'moment-timezone';
 import { LogRecordType, HistoryLogRecordType } from './LogRecord';
 import * as IBFRecordReader from './IBFRecordReader';
 import * as LogRecordParser from './LogRecordParser';
+import appConfig from '../../config';
 
 export default function IBFReader(file, productId) {
   var reader = new FileReader();
@@ -30,8 +32,10 @@ export default function IBFReader(file, productId) {
               recordType = Object.keys(LogRecordType).find(key => LogRecordType[key] === parsed.logType);
             }
             if (recordType === 'BASAL_RATE') {
+              const timeZone = appConfig.timeZone;
+              const utcTime = moment(parsed.timestamp, timeZone).utc().toISOString();
               pumpRecords.push({
-                recorded_at: parsed.timestamp,
+                recorded_at: utcTime,
                 product_pump_id: productId,
                 slow_insulin: parsed.basalRatePerHour
               })

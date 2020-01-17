@@ -14,12 +14,18 @@ import {
 const mapStateToProps = state => ({
   token: state.session.token,
   detail: state.productDetail,
-  uploadStatus: state.uploader.status
+  uploadStatus: state.uploader.status,
+  lastRecordTimestamp: state.uploader.lastRecordTimestamp
 });
 
 const mapDispatchToProps = dispatch => ({
   requestProductDetail: id => dispatch(requestProductDetail(id)),
-  uploadRecords: (token, records, productId) => dispatch(uploadRecords(token, records, productId)),
+  uploadRecords: (
+    token,
+    records,
+    productId,
+    lastRecordTimestamp
+  ) => dispatch(uploadRecords(token, records, productId, lastRecordTimestamp)),
   updateUploadStatus: status => dispatch(updateUploadStatus(status)),
   requestLastRecord: (token, productId) => dispatch(requestLastRecord(token, productId))
 });

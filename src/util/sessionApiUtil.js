@@ -1,5 +1,5 @@
 import axios from 'axios';
-import appConfig from '../config.js';
+import appConfig from '../config.js'
 
 export const requestLoginCode = email => (
   axios({

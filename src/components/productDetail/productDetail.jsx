@@ -8,6 +8,7 @@ import AppleIcon from '../uiElements/AppleIcon';
 import Card from '../uiElements/Card';
 import BackIcon from '../uiElements/BackIcon';
 import Button from '../uiElements/Button';
+import LoadingButton from '../uiElements/LoadingButton';
 import UploadedModal from '../uploadedModal/uploadedModal';
 
 import './productDetail.style.css';
@@ -35,10 +36,10 @@ class ProductDetail extends Component {
     e.target.value = null;
     let token = this.props.token;
     let productId = this.props.id
+    let lastRecordTimestamp = this.props.lastRecordTimestamp
     IBFReader(file, this.props.detail.id)
     .then(records => {
-      console.log(records);
-      this.props.uploadRecords(token, records, productId);
+      this.props.uploadRecords(token, records, productId, lastRecordTimestamp);
     })
     .catch(err => {
       this.props.updateUploadStatus('failed')
@@ -49,8 +50,9 @@ class ProductDetail extends Component {
     const { steps, note } = this.props.detail[type];
     let renderSteps;
     const button = (
-      <div>
+      <div key='file-input'>
         <input
+          disabled={this.props.uploadStatus === 'processing'}
           accept='.ibf'
           style={{ display: 'none' }}
           id='raised-button-file'
@@ -58,9 +60,14 @@ class ProductDetail extends Component {
           onChange={this.handleUpload}
         />
         <label htmlFor='raised-button-file'>
-          <Button component='span'>
-            TÉLÉCHARGER
-          </Button>
+          {
+            <LoadingButton
+              loading={this.props.uploadStatus === 'processing'}
+              component='span'
+            >
+              TÉLÉCHARGER
+            </LoadingButton>
+          }
         </label>
       </div>
     )
