@@ -19,7 +19,7 @@ function App() {
       <nav>
       <Sidebar />
       </nav>
-      <main style={{backgroundColor: '#f1f3f6'}}>
+      <main style={{ backgroundColor: '#f1f3f6' }}>
         <Switch>
            <AuthRoute exact path='/' component={ sessionContainer } />
            <AuthRoute exact path='/login' component={ sessionContainer } />

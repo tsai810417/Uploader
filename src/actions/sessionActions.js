@@ -13,7 +13,10 @@ export const requestLoginCode = email => dispatch => {
   dispatch(updateSessionIsPending(true));
   APIUtil.requestLoginCode(email)
   .then(response => {
-    dispatch(receiveUser({user_id: response.data.id, email: email}));
+    dispatch(receiveUser({
+      user_id: response.data.id,
+      email: email
+    }));
     dispatch(updateSessionIsPending(false));
   })
   .catch(error => {

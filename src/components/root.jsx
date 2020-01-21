@@ -20,7 +20,7 @@ const theme = createMuiTheme({
 const Root = ({ store }) => (
   <Provider store={ store }>
     <HashRouter>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={ theme }>
         <App />
       </ThemeProvider>
     </HashRouter>

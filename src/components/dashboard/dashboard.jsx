@@ -18,10 +18,10 @@ class Dashboard extends Component {
           productId ?
           <ProductDetail
             history={ this.props.history }
-            id={productId}
+            id={ productId }
           /> :
           <ProductList
-            history={this.props.history}
+            history={ this.props.history }
           />
         }
       </div>

@@ -35,7 +35,7 @@ class UserInfo extends Component {
         <Grid container justify="space-around" alignItems="center" spacing={ 2 }>
           <Grid item xs={ 12 } sm={ 12 } md={ 2 } id='avatar-and-email'>
             <Avatar alt="user-pic" src={ url_picture } />
-            <a href={`mailto:${email}`}>{ email }</a>
+            <a href={`mailto:${ email }`}>{ email }</a>
           </Grid>
           <Grid item xs={ 12 } sm={ 5 } md={ 4 }>
             <p>

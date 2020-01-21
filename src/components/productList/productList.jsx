@@ -28,8 +28,16 @@ class ProductList extends Component {
           return (
             <Grid item md={ 4 } lg={ 3 } xl={ 2 }>
               <Card variant="outlined">
-                <img className='brand-img transparent-img' alt={p.brand.name} src={p.brand.picture_url} />
-                <img className='product-img  transparent-img' alt={p.name} src={p.picture_url} />
+                <img
+                  className='brand-img transparent-img'
+                  alt={ p.brand.name }
+                  src={ p.brand.picture_url }
+                />
+                <img
+                  className='product-img  transparent-img'
+                  alt={ p.name }
+                  src={ p.picture_url }
+                />
               </Card>
             </Grid>
           )
@@ -45,10 +53,16 @@ class ProductList extends Component {
                     }
                   }
                 }
-                className={p.disabled ? 'disabled-card' : ''}
+                className={ p.disabled ? 'disabled-card' : '' }
               >
-                <img className='brand-img' src={p.brand.picture_url} />
-                <img className='product-img' src={p.picture_url} />
+                <img
+                  className='brand-img'
+                  src={ p.brand.picture_url }
+                />
+                <img
+                  className='product-img'
+                  src={ p.picture_url }
+                />
               </HoverEffectCard>
             </Grid>
           )

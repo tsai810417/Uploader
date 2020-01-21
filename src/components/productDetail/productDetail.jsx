@@ -52,17 +52,17 @@ class ProductDetail extends Component {
     const button = (
       <div key='file-input'>
         <input
-          disabled={this.props.uploadStatus === 'processing'}
+          disabled={ this.props.uploadStatus === 'processing' }
           accept='.ibf'
           style={{ display: 'none' }}
           id='raised-button-file'
           type='file'
-          onChange={this.handleUpload}
+          onChange={ this.handleUpload }
         />
         <label htmlFor='raised-button-file'>
           {
             <LoadingButton
-              loading={this.props.uploadStatus === 'processing'}
+              loading={ this.props.uploadStatus === 'processing' }
               component='span'
             >
               TÉLÉCHARGER
@@ -74,7 +74,7 @@ class ProductDetail extends Component {
 
     if (steps) {
       renderSteps = steps.map((step, idx) => (
-        <li key={`${type}-${idx}`}>{ step }</li>
+        <li key={`${ type }-${ idx }`}>{ step }</li>
       ));
       if (type === 'ios') {
         renderSteps.splice(3, 0, button)
@@ -106,12 +106,12 @@ class ProductDetail extends Component {
       <Paper variant='outlined'>
         <Grid container>
           <Grid item sm={ 3 } md={ 1 }>
-            <BackIcon onClick={this.handleBackToList}/>
+            <BackIcon onClick={ this.handleBackToList }/>
           </Grid>
           <Grid item sm={ 9 } md={ 3 }>
             <Card variant='outlined'>
-              <img className='brand-img' src={brand_picture_url} />
-              <img className='product-img' src={product_picture_url} />
+              <img className='brand-img' src={ brand_picture_url } />
+              <img className='product-img' src={ product_picture_url } />
             </Card>
           </Grid>
           <Grid item sm={ 6 } md={ 4 }>

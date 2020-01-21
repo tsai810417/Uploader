@@ -21,7 +21,7 @@ class UploadedModal extends Component {
         <CheckIcon />
         <h3>Données téléchargées</h3>
         <p>Ouvrez l’application DIABNEXT pour voir les données de votre pompe.</p>
-        <Button onClick={this.handleCloseModal}>OK</Button>
+        <Button onClick={ this.handleCloseModal }>OK</Button>
       </div>
     )
   }
@@ -32,7 +32,7 @@ class UploadedModal extends Component {
         <ErrorIcon />
         <h3>Oops! Le téléchargement a échoué</h3>
         <p>Please refresh the page and try again</p>
-        <Button onClick={this.handleCloseModal}>OK</Button>
+        <Button onClick={ this.handleCloseModal }>OK</Button>
       </div>
     )
   }
@@ -40,9 +40,9 @@ class UploadedModal extends Component {
   render() {
     return (
       <Modal
-        open={this.props.showModal}
+        open={ this.props.showModal }
         // open={true}
-        onClose={this.handleCloseModal}
+        onClose={ this.handleCloseModal }
       >
         {
           this.props.status === 'success' ?

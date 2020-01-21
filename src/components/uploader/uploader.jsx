@@ -9,7 +9,7 @@ class Uploader extends Component {
 
   onChangeHandler(event) {
     let file = event.target.files[0];
-    console.log(IBFReader(file))
+    IBFReader(file);
   }
 
   render() {
@@ -19,7 +19,8 @@ class Uploader extends Component {
           type="file"
           name="file"
           accept='.ibf'
-          onChange={this.onChangeHandler}/>
+          onChange={this.onChangeHandler}
+        />
       </div>
     )
   }

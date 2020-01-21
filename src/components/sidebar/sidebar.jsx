@@ -30,11 +30,11 @@ class Sidebar extends Component {
         <Drawer
         variant="persistent"
         anchor="left"
-        open={this.state.sidebarOpen}
+        open={ this.state.sidebarOpen }
         >
           <img src={ bigD } id='diabnext-favicon' alt='logo' />
           <List>
-            <ListItem button key='logout' onClick={this.props.logout}>
+            <ListItem button key='logout' onClick={ this.props.logout }>
               <LogoutIcon />
             </ListItem>
           </List>

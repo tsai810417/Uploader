@@ -12,7 +12,6 @@ export const requestUserInfo = token => dispatch => {
 };
 
 export const receiveWrongToken = () => dispatch => {
-  console.log('token expire');
   dispatch(logout());
 };
 
