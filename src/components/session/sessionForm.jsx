@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Button from '../uiElements/Button';
-import TextField from '@material-ui/core/TextField';
+import TextField from '../uiElements/TextField';
 import CircularProgress from '../uiElements/CircularProgress';
+import InfoIcon from '../uiElements/InfoIcon';
 import './sessionForm.style.css';
 import logo from '../../images/diabnext_logo.png';
 
@@ -20,7 +21,7 @@ class SessionForm extends Component {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
-  emailInput() {
+  renderEmailInput() {
     if (this.props.userId) {
       return (
         <TextField
@@ -60,7 +61,7 @@ class SessionForm extends Component {
     }
   }
 
-  codeInput() {
+  renderCodeInput() {
     if (this.props.errors.code) {
       return (
         <TextField
@@ -84,6 +85,18 @@ class SessionForm extends Component {
         />
       )
     }
+  }
+
+  renderCodeInstruction() {
+    return (
+      <div id='code-instruction-holder'>
+        <InfoIcon />
+        <div>
+        <h3>Un code vous a été transmis par email</h3>
+        <p>Veuillez entrer le code reçu dans votre boîte mail. N’oubliez pas de regarder dans vos SPAMS.</p>
+        </div>
+      </div>
+    )
   }
 
   requestLoginCode(e) {
@@ -137,10 +150,9 @@ class SessionForm extends Component {
         <section>
           <form id='session-form'>
             <img src={ logo } alt='logo' id='diabnext-logo' />
-            { this.emailInput() }
-            <br />
-            { this.props.userId ? this.codeInput() : '' }
-            <br/>
+            { this.renderEmailInput() }
+            { this.props.userId ? this.renderCodeInstruction() : '' }
+            { this.props.userId ? this.renderCodeInput() : '' }
             { this.props.loading ? <CircularProgress /> : this.submitButton() }
           </form>
         </section>

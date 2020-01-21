@@ -1,5 +1,5 @@
 section {
-  width: 400px;
+  width: 500px;
   height: 100vh;
   background-color: #FFFFFF;
 }
@@ -24,4 +24,13 @@ section {
   margin-top: 40px;
   margin-bottom: 40px;
   width: 200px;
+}
+
+#code-instruction-holder {
+  display: flex;
+  border: 1px solid #91d5ff;
+  border-radius: 5px;
+  background: #e6f7ff;
+  padding: 16px;
+  margin-bottom: 30px;
 }
