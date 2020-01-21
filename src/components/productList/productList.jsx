@@ -26,7 +26,7 @@ class ProductList extends Component {
       {
         if (p.disabled) {
           return (
-            <Grid item md={ 4 } lg={ 3 } xl={ 2 }>
+            <Grid item key={ p.name } md={ 4 } lg={ 3 } xl={ 2 }>
               <Card variant="outlined">
                 <img
                   className='brand-img transparent-img'
@@ -43,7 +43,7 @@ class ProductList extends Component {
           )
         } else {
           return (
-            <Grid item md={ 4 } lg={ 3 } xl={ 2 }>
+            <Grid item key={ p.name } md={ 4 } lg={ 3 } xl={ 2 }>
               <HoverEffectCard
                 variant="outlined"
                 onClick={
