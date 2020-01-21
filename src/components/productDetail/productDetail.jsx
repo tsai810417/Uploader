@@ -122,8 +122,11 @@ class ProductDetail extends Component {
           </Grid>
         </Grid>
         <UploadedModal
-          showModal={this.props.uploadStatus === 'success' }
-          updateUploadStatus={this.props.updateUploadStatus}
+          showModal={
+            this.props.uploadStatus === 'success' || this.props.uploadStatus === 'failed'
+          }
+          status={ this.props.uploadStatus }
+          updateUploadStatus={ this.props.updateUploadStatus }
         />
       </Paper>
     )
