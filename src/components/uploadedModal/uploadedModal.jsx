@@ -31,7 +31,7 @@ class UploadedModal extends Component {
       <div className='modal-content'>
         <ErrorIcon />
         <h3>Oops! Le téléchargement a échoué</h3>
-        <p>Please refresh the page and try again</p>
+        <p>Veuillez rafraîchir la page puis réessayez</p>
         <Button onClick={ this.handleCloseModal }>OK</Button>
       </div>
     )
