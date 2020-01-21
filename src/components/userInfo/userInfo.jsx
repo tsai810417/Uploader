@@ -5,24 +5,20 @@ import Avatar from '../uiElements/Avatar';
 import './userInfo.style.css';
 
 class UserInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.requestUserInfo(this.props.token);
   }
 
   render() {
     const {
-      id,
+      // id,
       firstname,
       lastname,
       maiden_name,
       email,
       url_picture,
       diabete_type,
-      diabete_type_color,
+      // diabete_type_color,
       address1,
       address2,
       zip,

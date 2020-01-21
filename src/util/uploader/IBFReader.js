@@ -22,7 +22,6 @@ export default function IBFReader(file, productId) {
         if (recordCount >= 0) {
           let [err, parsed] = LogRecordParser.parseLogRecord(record);
           if (err) {
-            // console.log(err);
             // reject(err);
           } else {
             let recordType;
@@ -33,7 +32,8 @@ export default function IBFReader(file, productId) {
             }
             if (recordType === 'BASAL_RATE') {
               const timeZone = appConfig.timeZone;
-              const utcTime = moment(parsed.timestamp, timeZone).utc().toISOString();
+              const utcTime = moment(parsed.timestamp, timeZone).toISOString();
+              console.log(parsed);
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,

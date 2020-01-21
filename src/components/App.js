@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Switch
 } from 'react-router-dom';
-import logo from '../images/diabnext_logo.png';
 import './App.css';
 import {
   AuthRoute,

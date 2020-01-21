@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../uiElements/Button';
 import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
 import CircularProgress from '../uiElements/CircularProgress';
 import './sessionForm.style.css';
 import logo from '../../images/diabnext_logo.png';

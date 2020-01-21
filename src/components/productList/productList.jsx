@@ -57,10 +57,12 @@ class ProductList extends Component {
               >
                 <img
                   className='brand-img'
+                  alt={ p.brand.name }
                   src={ p.brand.picture_url }
                 />
                 <img
                   className='product-img'
+                  alt={ p.name }
                   src={ p.picture_url }
                 />
               </HoverEffectCard>

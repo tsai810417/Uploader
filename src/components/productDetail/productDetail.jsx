@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import AndroidIcon from '../uiElements/AndroidIcon';
 import AppleIcon from '../uiElements/AppleIcon';
 import Card from '../uiElements/Card';
 import BackIcon from '../uiElements/BackIcon';
-import Button from '../uiElements/Button';
 import LoadingButton from '../uiElements/LoadingButton';
 import UploadedModal from '../uploadedModal/uploadedModal';
 
@@ -110,8 +107,8 @@ class ProductDetail extends Component {
           </Grid>
           <Grid item sm={ 9 } md={ 3 }>
             <Card variant='outlined'>
-              <img className='brand-img' src={ brand_picture_url } />
-              <img className='product-img' src={ product_picture_url } />
+              <img className='brand-img' alt={ `${id}-brand` } src={ brand_picture_url } />
+              <img className='product-img' alt={ `${id}-product` } src={ product_picture_url } />
             </Card>
           </Grid>
           <Grid item sm={ 6 } md={ 4 }>

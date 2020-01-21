@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import IBFReader from '../../util/uploader/IBFReader';
-import { Buffer } from 'buffer';
 
 class Uploader extends Component {
   constructor(props) {

@@ -39,7 +39,6 @@ const sessionReducer = (initState = pastToken, action) => {
     case LOGOUT:
       localStorage.token = '';
       return _nullUser;
-      break;
 
     case UPDATE_SESSION_IS_PENDING:
       newState.loading = action.payload;

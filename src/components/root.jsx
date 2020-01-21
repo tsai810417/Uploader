@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { green, orange } from '@material-ui/core/colors';
 
 import App from './App';
 
