@@ -30,15 +30,24 @@ export default function IBFReader(file, productId) {
             } else {
               recordType = Object.keys(LogRecordType).find(key => LogRecordType[key] === parsed.logType);
             }
+
+            const timeZone = appConfig.timeZone;
+            const utcTime = moment(parsed.timestamp, timeZone).toISOString();
+            
+            if (recordType === 'BOLUS') {
+              pumpRecords.push({
+                recorded_at: utcTime,
+                product_pump_id: productId,
+                fast_insulin: parsed.units
+              })
+            };
+
             if (recordType === 'BASAL_RATE') {
-              const timeZone = appConfig.timeZone;
-              const utcTime = moment(parsed.timestamp, timeZone).toISOString();
-              console.log(parsed);
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,
                 slow_insulin: parsed.basalRatePerHour
-              })
+              });
             }
           }
         }
