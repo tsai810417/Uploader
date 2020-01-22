@@ -1,5 +1,11 @@
-section {
-  width: 500px;
+#backgound-holder {
+  width: calc(100% - 400px);
+  height: 100vh;
+  background-size: cover;
+}
+
+#session-form-container {
+  width: 400px;
   height: 100vh;
   background-color: #FFFFFF;
 }
@@ -7,8 +13,6 @@ section {
 #page-container {
   display: flex;
   justify-content: flex-end;
-  height: 100vh;
-  background-size: cover;
 }
 
 #session-form {

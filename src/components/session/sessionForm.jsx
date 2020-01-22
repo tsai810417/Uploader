@@ -154,8 +154,9 @@ class SessionForm extends Component {
 
   render() {
     return (
-      <div id='page-container' style={{ backgroundImage: `url(${Background})` }}>
-        <section>
+      <div id='page-container'>
+        <section id='backgound-holder' style={{ backgroundImage: `url(${Background})` }}></section>
+        <section id='session-form-container'>
           <form id='session-form'>
             <img src={ logo } alt='logo' id='diabnext-logo' />
             { this.renderEmailInput() }
