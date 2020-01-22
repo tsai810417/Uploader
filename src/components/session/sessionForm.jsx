@@ -5,6 +5,7 @@ import CircularProgress from '../uiElements/CircularProgress';
 import InfoIcon from '../uiElements/InfoIcon';
 import './sessionForm.style.css';
 import logo from '../../images/diabnext_logo.png';
+import Background from '../../images/background.jpg';
 
 class SessionForm extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class SessionForm extends Component {
 
   renderEmailInput() {
     if (this.props.userId) {
+      // disabled email textField
       return (
         <TextField
           disabled
@@ -35,6 +37,7 @@ class SessionForm extends Component {
       )
     }
     if (this.props.errors.email) {
+      // email textField with error msg
       return (
         <TextField
           error
@@ -48,6 +51,7 @@ class SessionForm extends Component {
         />
       )
     } else {
+      // default email textField
       return (
         <TextField
           id='session-email-input'
@@ -63,6 +67,7 @@ class SessionForm extends Component {
 
   renderCodeInput() {
     if (this.props.errors.code) {
+      // code textField with error msg
       return (
         <TextField
           error
@@ -75,6 +80,7 @@ class SessionForm extends Component {
         />
       )
     } else {
+      // default code textField
       return (
         <TextField
           id='session-code-input'
@@ -146,7 +152,7 @@ class SessionForm extends Component {
 
   render() {
     return (
-      <div id='page-container'>
+      <div id='page-container' style={{ backgroundImage: `url(${Background})` }}>
         <section>
           <form id='session-form'>
             <img src={ logo } alt='logo' id='diabnext-logo' />

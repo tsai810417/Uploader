@@ -8,7 +8,7 @@ section {
   display: flex;
   justify-content: flex-end;
   height: 100vh;
-  background-color: #15b9df;
+  background-size: cover;
 }
 
 #session-form {
