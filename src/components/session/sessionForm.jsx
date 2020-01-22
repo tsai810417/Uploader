@@ -56,6 +56,7 @@ class SessionForm extends Component {
         <TextField
           id='session-email-input'
           label='Email'
+          placeholder='Email'
           defaultValue={ this.props.email }
           onChange={ this.update('email') }
           variant='outlined'
@@ -85,6 +86,7 @@ class SessionForm extends Component {
         <TextField
           id='session-code-input'
           label='Code'
+          placeholder='Code à 4 chiffres reçu par mail'
           defaultValue={ this.props.code }
           onChange={ this.update('code') }
           variant='outlined'
@@ -98,7 +100,7 @@ class SessionForm extends Component {
       <div id='code-instruction-holder'>
         <InfoIcon />
         <div>
-        <h3>Un code vous a été transmis par email</h3>
+        <h3>Code à 4 chiffres reçu par mail</h3>
         <p>Veuillez entrer le code reçu dans votre boîte mail. N’oubliez pas de regarder dans vos SPAMS.</p>
         </div>
       </div>
