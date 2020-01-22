@@ -38,6 +38,7 @@ const sessionReducer = (initState = pastToken, action) => {
 
     case LOGOUT:
       localStorage.token = '';
+      localStorage.ypsomedAccount = '';
       return _nullUser;
 
     case UPDATE_SESSION_IS_PENDING:

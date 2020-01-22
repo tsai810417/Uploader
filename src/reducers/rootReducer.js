@@ -5,6 +5,7 @@ import userInfoReducer from './userInfoReducer';
 import productListReducer from './productListReducer';
 import productDetailReducer from './productDetailReducer';
 import uploaderReducer from './uploaderReducer';
+import ypsomedModalReducer from './ypsomedModalReducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   userInfo: userInfoReducer,
   productList: productListReducer,
   productDetail: productDetailReducer,
-  uploader: uploaderReducer
+  uploader: uploaderReducer,
+  ypsomedAccount: ypsomedModalReducer
 });
 
 export default rootReducer;

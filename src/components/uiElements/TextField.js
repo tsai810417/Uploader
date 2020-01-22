@@ -3,7 +3,8 @@ import TextField from '@material-ui/core/TextField';
 
 const styles = {
   root: {
-    marginBottom: '30px'
+    marginBottom: '30px',
+    width: '100%'
   }
 };
 

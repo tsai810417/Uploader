@@ -4,13 +4,19 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import HoverEffectCard from '../uiElements/HoverEffectCard';
 import Card from '../uiElements/Card';
+import YpsomedModal from '../ypsomedModal/ypsomedModalContainer';
 
 import './productList.style.css';
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showYpsomedModal: false
+    };
     this.handleSelectProduct = this.handleSelectProduct.bind(this);
+    this.handleShowYpsomedModal = this.handleShowYpsomedModal.bind(this);
+    this.handleCloseYpsomedModal = this.handleCloseYpsomedModal.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +25,14 @@ class ProductList extends Component {
 
   handleSelectProduct(id) {
     this.props.history.push(`/dashboard/${id}`);
+  }
+
+  handleShowYpsomedModal() {
+    this.setState({ showYpsomedModal: true });
+  }
+
+  handleCloseYpsomedModal() {
+    this.setState({ showYpsomedModal: false });
   }
 
   renderProducts() {
@@ -49,7 +63,11 @@ class ProductList extends Component {
                 onClick={
                   () => {
                     if (!p.disabled) {
-                      this.handleSelectProduct(p.id);
+                      if (p.id === 97) {
+                        this.handleShowYpsomedModal();
+                      } else {
+                        this.handleSelectProduct(p.id);
+                      }
                     }
                   }
                 }
@@ -81,6 +99,10 @@ class ProductList extends Component {
         <Grid container>
           {this.renderProducts()}
         </Grid>
+        <YpsomedModal
+          showModal={ this.state.showYpsomedModal }
+          handleCloseModal={ this.handleCloseYpsomedModal }
+        />
       </Paper>
     )
   }
