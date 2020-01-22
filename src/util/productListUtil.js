@@ -10,6 +10,16 @@ const productList = [
     }
   },
   {
+    id: 97,
+    name: 'YpsoPump',
+    picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Ypsomed_YpsoPump.png',
+    disabled: false,
+    brand: {
+      name: 'Ypsomed',
+      picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Ypsomed.png'
+    }
+  },
+  {
     id: 93,
     name: 'Paradigm Veo',
     picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Medtronic_ParadigmVeo.png',
@@ -37,16 +47,6 @@ const productList = [
     brand: {
       name: 'Medtronic',
       picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Medtronic.png'
-    }
-  },
-  {
-    id: 97,
-    name: 'YpsoPump',
-    picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Ypsomed_YpsoPump.png',
-    disabled: true,
-    brand: {
-      name: 'Ypsomed',
-      picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Ypsomed.png'
     }
   },
   {
