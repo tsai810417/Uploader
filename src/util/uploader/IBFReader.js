@@ -46,7 +46,7 @@ export default function IBFReader(file, productId) {
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,
-                slow_insulin: parsed.basalRatePerHour
+                basal_rate: parsed.basalRatePerHour
               });
             }
           }
