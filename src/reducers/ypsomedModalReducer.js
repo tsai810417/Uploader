@@ -1,18 +1,36 @@
+import { cloneDeep } from 'lodash';
+
 import {
-  SET_YPSOMED_ACCOUNT,
-  RESET_YPSOMED_ACCOUNT
+  UPDATE_YPSOMED_IS_PENDING,
+  RECEIVE_YPSOMED_ACCOUNT,
+  CLEAR_YPSOMED_ACCOUNT
 } from '../actions/ypsomedModalActions';
 
-const pastYpsomedAccount = localStorage.ypsomedAccount || '';
+const _nullYpsomedAccount = Object.freeze({
+  loading: false,
+  country: 'France',
+  email: null,
+  lastSync: null
+});
 
-const ypsomedModalReducer = (initState = pastYpsomedAccount, action) => {
+const ypsomedModalReducer = (initState = _nullYpsomedAccount, action) => {
+  Object.freeze(initState);
+
+  let newState = cloneDeep(initState);
+
   switch (action.type) {
-    case SET_YPSOMED_ACCOUNT:
-      localStorage.ypsomedAccount = action.payload;
-      return action.payload;
+    case UPDATE_YPSOMED_IS_PENDING:
+      newState.loading = action.payload;
+      return newState;
 
-    case RESET_YPSOMED_ACCOUNT:
-      return '';
+    case RECEIVE_YPSOMED_ACCOUNT:
+      newState.country = action.payload.country;
+      newState.email = action.payload.email;
+      newState.lastSync = action.payload.lastSync;
+      return newState;
+
+    case CLEAR_YPSOMED_ACCOUNT:
+      return _nullYpsomedAccount;
 
     default:
       return initState;

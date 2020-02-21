@@ -2,17 +2,26 @@ import { connect } from 'react-redux';
 import YpsomedModal from './ypsomedModal';
 
 import {
-  setYpsomedAccount,
-  resetYpsomedAccount
+  clearYpsomedError,
+  requestYpsomedAccount,
+  linkYpsomedAccount,
+  unlinkYpsomedAccount
 } from '../../actions/ypsomedModalActions';
 
 const mapStateToProps = state => ({
-  ypsomedAccount: state.ypsomedAccount
+  token: state.session.token,
+  loading: state.ypsomedAccount.loading,
+  country: state.ypsomedAccount.country,
+  email: state.ypsomedAccount.email,
+  lastSync: state.ypsomedAccount.lastSync,
+  errors: state.ypsomedError
 });
 
 const mapDispatchToProps = dispatch => ({
-  setYpsomedAccount: email => dispatch(setYpsomedAccount(email)),
-  resetYpsomedAccount: () => dispatch(resetYpsomedAccount())
+  clearYpsomedError: () => dispatch(clearYpsomedError()),
+  requestYpsomedAccount: token => dispatch(requestYpsomedAccount(token)),
+  linkYpsomedAccount: accountInfo => dispatch(linkYpsomedAccount(accountInfo)),
+  unlinkYpsomedAccount: accountInfo => dispatch(unlinkYpsomedAccount(accountInfo))
 });
 
 export default connect(
