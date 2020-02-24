@@ -16,7 +16,8 @@ const _nullError = Object.freeze({
 const errorTranslate = error => {
   const errorDictionary = {
     'CANNOT_ADD_USER': 'Incorrect email or password',
-    'CANNOT_UPDATE_USER': 'Something went wrong'
+    'CANNOT_UPDATE_USER': 'Something went wrong',
+    'USER_ALREADY_EXISTS': 'This YPSOMED account is linked to another DIABNEXT account'
   };
   if (errorDictionary[error]) {
     return errorDictionary[error];
