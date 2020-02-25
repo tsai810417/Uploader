@@ -29,13 +29,9 @@ export const linkYpsomedAccount = payload => (
 export const unlinkYpsomedAccount = payload => (
   axios({
     method: 'delete',
-    url: `${appConfig.apiUrl}/vendor/ypsomed/patient`,
+    url: `${appConfig.apiUrl}/vendor/ypsomed/patient/${payload.country}/${payload.email}`,
     headers: {
       Authorization: `Bearer ${payload.token}`
-    },
-    data: {
-      country: payload.country,
-      email: payload.email
     }
   })
 );
