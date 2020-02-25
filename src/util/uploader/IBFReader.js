@@ -33,7 +33,7 @@ export default function IBFReader(file, productId) {
 
             const timeZone = appConfig.timeZone;
             const utcTime = moment(parsed.timestamp, timeZone).toISOString();
-            
+
             if (recordType === 'BOLUS') {
               pumpRecords.push({
                 recorded_at: utcTime,
@@ -47,6 +47,14 @@ export default function IBFReader(file, productId) {
                 recorded_at: utcTime,
                 product_pump_id: productId,
                 basal_rate: parsed.basalRatePerHour
+              });
+            }
+
+            if (recordType === 'DEACTIVATE') {
+              pumpRecords.push({
+                recorded_at: utcTime,
+                product_pump_id: productId,
+                basal_rate: 0
               });
             }
           }
