@@ -38,7 +38,13 @@ export default function IBFReader(file, productId) {
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,
-                fast_insulin: parsed.units
+                fast_insulin: parsed.units,
+                memo: {
+                  platform: appConfig.platform,
+                  source: appConfig.source,
+                  srcVer: appConfig.srcVer,
+                  browser: appConfig.browser
+                }
               })
             };
 
@@ -46,7 +52,13 @@ export default function IBFReader(file, productId) {
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,
-                basal_rate: parsed.basalRatePerHour
+                basal_rate: parsed.basalRatePerHour,
+                memo: {
+                  platform: appConfig.platform,
+                  source: appConfig.source,
+                  srcVer: appConfig.srcVer,
+                  browser: appConfig.browser
+                }
               });
             }
 
@@ -54,7 +66,13 @@ export default function IBFReader(file, productId) {
               pumpRecords.push({
                 recorded_at: utcTime,
                 product_pump_id: productId,
-                basal_rate: 0
+                basal_rate: 0,
+                memo: {
+                  platform: appConfig.platform,
+                  source: appConfig.source,
+                  srcVer: appConfig.srcVer,
+                  browser: appConfig.browser
+                }
               });
             }
           }
