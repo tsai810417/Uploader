@@ -18,12 +18,21 @@ function getBrowser() {
 
 const browser = getBrowser();
 
+const apiUrl = 'https://dev-api.diabnext.com:40443/api';
+// const apiUrl = 'https://api.eu.diabnext.com/api';
+
+const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+export const memoString = JSON.stringify(
+  {
+    platform: 'web',
+    source: 'MyDiabnext',
+    srcVer: '1.0.0',
+    browser
+  }
+)
+
 export default {
-  apiUrl: 'https://dev-api.diabnext.com:40443/api',
-  // apiUrl: 'https://api.eu.diabnext.com/api',
-  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-  platform: 'web',
-  source: 'MyDiabnext',
-  srcVer: '1.0.0',
-  browser
+  apiUrl,
+  timeZone
 };

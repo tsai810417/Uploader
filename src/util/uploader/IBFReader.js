@@ -2,7 +2,7 @@ import moment from 'moment-timezone';
 import { LogRecordType, HistoryLogRecordType } from './LogRecord';
 import * as IBFRecordReader from './IBFRecordReader';
 import * as LogRecordParser from './LogRecordParser';
-import appConfig from '../../config';
+import appConfig, { memoString } from '../../config';
 
 export default function IBFReader(file, productId) {
   var reader = new FileReader();
@@ -39,12 +39,7 @@ export default function IBFReader(file, productId) {
                 recorded_at: utcTime,
                 product_pump_id: productId,
                 fast_insulin: parsed.units,
-                memo: {
-                  platform: appConfig.platform,
-                  source: appConfig.source,
-                  srcVer: appConfig.srcVer,
-                  browser: appConfig.browser
-                }
+                memo: memoString
               })
             };
 
@@ -53,12 +48,7 @@ export default function IBFReader(file, productId) {
                 recorded_at: utcTime,
                 product_pump_id: productId,
                 basal_rate: parsed.basalRatePerHour,
-                memo: {
-                  platform: appConfig.platform,
-                  source: appConfig.source,
-                  srcVer: appConfig.srcVer,
-                  browser: appConfig.browser
-                }
+                memo: memoString
               });
             }
 
@@ -67,12 +57,7 @@ export default function IBFReader(file, productId) {
                 recorded_at: utcTime,
                 product_pump_id: productId,
                 basal_rate: 0,
-                memo: {
-                  platform: appConfig.platform,
-                  source: appConfig.source,
-                  srcVer: appConfig.srcVer,
-                  browser: appConfig.browser
-                }
+                memo: memoString
               });
             }
           }
