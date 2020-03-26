@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import AndroidIcon from '../uiElements/AndroidIcon';
-import AppleIcon from '../uiElements/AppleIcon';
+import PcIcon from '../uiElements/PcIcon';
 import Card from '../uiElements/Card';
 import BackIcon from '../uiElements/BackIcon';
 import LoadingButton from '../uiElements/LoadingButton';
@@ -81,9 +81,9 @@ class ProductDetail extends Component {
     return (
       <div className='instruction-holder'>
         { type === 'android' ?
-          <div className='instruction-title'><AndroidIcon />ANDRIOD</div>
+          <div className='instruction-title'><AndroidIcon />ANDROID</div>
           :
-          <div className='instruction-title'><AppleIcon />iOS</div>
+          <div className='instruction-title'><PcIcon />PC</div>
         }
         <div className='instruction-content'>
           <p className='instruction-note'>{ note }</p>
