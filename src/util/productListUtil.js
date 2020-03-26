@@ -48,27 +48,7 @@ const productList = [
       name: 'Medtronic',
       picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Medtronic.png'
     }
-  },
-  {
-    id: 98,
-    name: 'Accu-Chek Insight',
-    picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Roche_ACCU-CHEK_Insight.png',
-    disabled: true,
-    brand: {
-      name: 'Roche',
-      picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Roche.png'
-    }
-  },
-  {
-    id: 99,
-    name: 'Kaleido',
-    picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Kaleido_Kaleido.png',
-    disabled: true,
-    brand: {
-      name: 'Kaleido',
-      picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/Kaleido.png'
-    }
-  },
+  }
 ]
 
 export const requestProductList = () => productList;
