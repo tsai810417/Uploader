@@ -27,7 +27,7 @@ export const memoString = JSON.stringify(
   {
     platform: 'web',
     source: 'MyDiabnext',
-    srcVer: '1.0.0',
+    srcVer: '1.0.1',
     browser
   }
 )
