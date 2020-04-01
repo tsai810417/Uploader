@@ -18,8 +18,8 @@ function getBrowser() {
 
 const browser = getBrowser();
 
-// const apiUrl = 'https://dev-api.diabnext.com:40443/api';
-const apiUrl = 'https://api.eu.diabnext.com/api';
+const apiUrl = 'https://dev-api.diabnext.com:40443/api';
+// const apiUrl = 'https://api.eu.diabnext.com/api';
 
 const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
