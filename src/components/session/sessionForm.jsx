@@ -128,7 +128,7 @@ class SessionForm extends Component {
           onClick={ this.requestLoginCode }
           disabled
         >
-          Next
+          SUIVANT
         </Button>
       )
     } else if (!this.props.userId) {
@@ -137,7 +137,7 @@ class SessionForm extends Component {
           variant='contained'
           onClick={ this.requestLoginCode }
         >
-          Next
+          SUIVANT
         </Button>
       )
     } else {

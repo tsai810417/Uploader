@@ -10,6 +10,7 @@ import UploadedModal from '../uploadedModal/uploadedModal';
 
 import './productDetail.style.css';
 import IBFReader from '../../util/uploader/IBFReader';
+import LibreParser from '../../util/libreParser';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -32,25 +33,43 @@ class ProductDetail extends Component {
     let file = e.target.files[0];
     e.target.value = null;
     let token = this.props.token;
-    let productId = this.props.id
-    let lastRecordTimestamp = this.props.lastRecordTimestamp
-    IBFReader(file, this.props.detail.id)
-    .then(records => {
-      this.props.uploadRecords(token, records, productId, lastRecordTimestamp);
-    })
-    .catch(err => {
-      this.props.updateUploadStatus('failed')
-    });
+    let productId = this.props.detail.id
+    let lastRecordTimestamp = this.props.lastRecordTimestamp;
+
+    switch (productId) {
+      case 96:
+        IBFReader(file, productId)
+        .then(records => {
+          this.props.uploadRecords(token, records, productId, lastRecordTimestamp);
+        })
+        .catch(err => {
+          this.props.updateUploadStatus('failed')
+        });
+        break;
+
+      case 85:
+        LibreParser(file, productId)
+        .then(records => {
+          this.props.uploadRecords(token, records, productId, lastRecordTimestamp);
+        })
+        .catch(err => {
+          this.props.updateUploadStatus('failed')
+        });
+        break;
+
+      default:
+        return;
+    }
   }
 
   renderInstruction(type) {
-    const { steps, note } = this.props.detail[type];
+    const { steps, note, acceptFile } = this.props.detail[type];
     let renderSteps;
     const button = (
       <div key='file-input'>
         <input
           disabled={ this.props.uploadStatus === 'processing' }
-          accept='.ibf'
+          accept={ acceptFile }
           style={{ display: 'none' }}
           id='raised-button-file'
           type='file'
@@ -73,24 +92,28 @@ class ProductDetail extends Component {
       renderSteps = steps.map((step, idx) => (
         <li key={`${ type }-${ idx }`}>{ step }</li>
       ));
-      if (type === 'ios') {
-        renderSteps.splice(3, 0, button)
+      
+      if (type === 'pc') {
+        const buttonIdx = steps.indexOf('BUTTON');
+        renderSteps[buttonIdx] = button;
       }
     }
 
     return (
-      <div className='instruction-holder'>
-        { type === 'android' ?
-          <div className='instruction-title'><AndroidIcon />ANDROID</div>
-          :
-          <div className='instruction-title'><PcIcon />PC</div>
-        }
-        <div className='instruction-content'>
-          <p className='instruction-note'>{ note }</p>
-          <ol>{ renderSteps }</ol>
+      <Grid item sm={ 12 } md={ 4 }>
+        <div className='instruction-holder'>
+          { type === 'android' ?
+            <div className='instruction-title'><AndroidIcon />ANDROID</div>
+            :
+            <div className='instruction-title'><PcIcon />PC ou Mac</div>
+          }
+          <div className='instruction-content'>
+            <p className='instruction-note'>{ note }</p>
+            <ol>{ renderSteps }</ol>
+          </div>
         </div>
-      </div>
-    )
+      </Grid>
+    );
   }
 
   render() {
@@ -99,6 +122,7 @@ class ProductDetail extends Component {
       brand_picture_url,
       product_picture_url
     } = this.props.detail;
+
     return (
       <Paper variant='outlined'>
         <Grid container>
@@ -111,12 +135,8 @@ class ProductDetail extends Component {
               <img className='product-img' alt={ `${id}-product` } src={ product_picture_url } />
             </Card>
           </Grid>
-          <Grid item sm={ 6 } md={ 4 }>
-            { this.renderInstruction('android') }
-          </Grid>
-          <Grid item sm={ 6 } md={ 4 }>
-            { this.renderInstruction('ios') }
-          </Grid>
+          { this.props.detail.android ? this.renderInstruction('android') : '' }
+          { this.renderInstruction('pc') }
         </Grid>
         <UploadedModal
           showModal={

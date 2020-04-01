@@ -20,6 +20,16 @@ const productList = [
     }
   },
   {
+    id: 85,
+    name: 'FGM',
+    picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Abbott_FreeStyle_Libre.png',
+    disabled: false,
+    brand: {
+      name: 'Abbott',
+      picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/brands/FGM.png'
+    }
+  },
+  {
     id: 93,
     name: 'Paradigm Veo',
     picture_url: 'https://diabnext-app.s3.amazonaws.com/pictures/products/Medtronic_ParadigmVeo.png',

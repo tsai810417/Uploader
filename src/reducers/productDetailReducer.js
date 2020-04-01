@@ -5,7 +5,7 @@ import {
 const _nullProductDetail = {
   name: null,
   picture_url: null,
-  ios: {
+  pc: {
     note: null,
     steps: null
   },

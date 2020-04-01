@@ -28,6 +28,7 @@ export const uploadRecords = (token, records, lastRecordTimestamp) => {
       }
     })
   });
+
   return axios.all(promiseArray);
 };
 
